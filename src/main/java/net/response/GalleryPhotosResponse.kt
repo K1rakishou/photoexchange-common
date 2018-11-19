@@ -9,7 +9,7 @@ private constructor(
 
   @Expose
   @SerializedName("gallery_photos")
-  val galleryPhoto: List<GalleryPhotoResponseData>,
+  val galleryPhotos: List<GalleryPhotoResponseData>,
 
   errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
