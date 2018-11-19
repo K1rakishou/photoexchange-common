@@ -26,21 +26,27 @@ private constructor(
 
 	class UploadedPhotoResponseData(
 
+		@Expose
 		@SerializedName("photo_id")
 		val photoId: Long,
 
+    @Expose
 		@SerializedName("photo_name")
 		val photoName: String,
 
+    @Expose
 		@SerializedName("uploader_lon")
 		val uploaderLon: Double,
 
+    @Expose
 		@SerializedName("uploader_lat")
 		val uploaderLat: Double,
 
+    @Expose
 		@SerializedName("has_receiver_info")
 		val hasReceiverInfo: Boolean,
 
+    @Expose
 		@SerializedName("uploaded_on")
 		val uploadedOn: Long
 	)

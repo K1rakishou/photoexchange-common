@@ -26,12 +26,15 @@ private constructor(
 
   class GalleryPhotosInfoResponseData(
 
+    @Expose
     @SerializedName("photoId")
     val id: Long,
 
+    @Expose
     @SerializedName("is_favourited")
     val isFavourited: Boolean,
 
+    @Expose
     @SerializedName("is_reported")
     val isReported: Boolean
   )
