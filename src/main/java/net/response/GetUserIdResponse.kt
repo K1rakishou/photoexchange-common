@@ -9,7 +9,7 @@ private constructor(
 
 	@Expose
 	@SerializedName("user_id")
-	val userId: String?,
+	val userId: String,
 
 	errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
@@ -20,7 +20,7 @@ private constructor(
 		}
 
 		fun fail(errorCode: ErrorCode): GetUserIdResponse {
-			return GetUserIdResponse(null, errorCode)
+			return GetUserIdResponse("", errorCode)
 		}
 	}
 }
