@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import core.ErrorCode
 
-class ReceivePhotosResponse
+class ReceivedPhotosResponse
 private constructor(
 
 	@Expose
@@ -15,12 +15,12 @@ private constructor(
 ) : StatusResponse(errorCode.value) {
 
 	companion object {
-		fun success(receivedPhotos: List<ReceivedPhotoResponseData>): ReceivePhotosResponse {
-			return ReceivePhotosResponse(receivedPhotos, ErrorCode.Ok)
+		fun success(receivedPhotos: List<ReceivedPhotoResponseData>): ReceivedPhotosResponse {
+			return ReceivedPhotosResponse(receivedPhotos, ErrorCode.Ok)
 		}
 
-		fun fail(errorCode: ErrorCode): ReceivePhotosResponse {
-			return ReceivePhotosResponse(emptyList(), errorCode)
+		fun fail(errorCode: ErrorCode): ReceivedPhotosResponse {
+			return ReceivedPhotosResponse(emptyList(), errorCode)
 		}
 	}
 
