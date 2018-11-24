@@ -14,16 +14,20 @@ class UploadPhotoResponse(
 	@SerializedName("photo_name")
 	val photoName: String,
 
+  @Expose
+  @SerializedName("uploaded_on")
+	val uploadedOn: Long,
+
 	errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
 	companion object {
-		fun success(photoId: Long, photoName: String): UploadPhotoResponse {
-			return UploadPhotoResponse(photoId, photoName, ErrorCode.Ok)
+		fun success(photoId: Long, photoName: String, uploadedOn: Long): UploadPhotoResponse {
+			return UploadPhotoResponse(photoId, photoName, uploadedOn, ErrorCode.Ok)
 		}
 
 		fun fail(errorCode: ErrorCode): UploadPhotoResponse {
-			return UploadPhotoResponse(-1L, "", errorCode)
+			return UploadPhotoResponse(-1L, "", -1L, errorCode)
 		}
 	}
 }
