@@ -7,24 +7,24 @@ import core.ErrorCode
 class FavouritePhotoResponse
 private constructor(
 
-	@Expose
-	@SerializedName("is_favourited")
-	val isFavourited: Boolean,
+  @Expose
+  @SerializedName("is_favourited")
+  val isFavourited: Boolean,
 
   @Expose
-	@SerializedName("count")
-	val favouritesCount: Long,
+  @SerializedName("count")
+  val favouritesCount: Long,
 
-	errorCode: ErrorCode
+  errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
-	companion object {
-		fun success(isFavourited: Boolean, count: Long): FavouritePhotoResponse {
-			return FavouritePhotoResponse(isFavourited, count, ErrorCode.Ok)
-		}
+  companion object {
+    fun success(isFavourited: Boolean, count: Long): FavouritePhotoResponse {
+      return FavouritePhotoResponse(isFavourited, count, ErrorCode.Ok)
+    }
 
-		fun fail(errorCode: ErrorCode): FavouritePhotoResponse {
-			return FavouritePhotoResponse(false, 0, errorCode)
-		}
-	}
+    fun fail(errorCode: ErrorCode): FavouritePhotoResponse {
+      return FavouritePhotoResponse(false, 0, errorCode)
+    }
+  }
 }

@@ -7,20 +7,20 @@ import core.ErrorCode
 class GetUserIdResponse
 private constructor(
 
-	@Expose
-	@SerializedName("user_id")
-	val userId: String,
+  @Expose
+  @SerializedName("user_id")
+  val userId: String,
 
-	errorCode: ErrorCode
+  errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
-	companion object {
-		fun success(userId: String): GetUserIdResponse {
-			return GetUserIdResponse(userId, ErrorCode.Ok)
-		}
+  companion object {
+    fun success(userId: String): GetUserIdResponse {
+      return GetUserIdResponse(userId, ErrorCode.Ok)
+    }
 
-		fun fail(errorCode: ErrorCode): GetUserIdResponse {
-			return GetUserIdResponse("", errorCode)
-		}
-	}
+    fun fail(errorCode: ErrorCode): GetUserIdResponse {
+      return GetUserIdResponse("", errorCode)
+    }
+  }
 }

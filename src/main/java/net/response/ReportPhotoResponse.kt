@@ -7,20 +7,20 @@ import core.ErrorCode
 class ReportPhotoResponse
 private constructor(
 
-	@Expose
-	@SerializedName("is_reported")
-	val isReported: Boolean,
+  @Expose
+  @SerializedName("is_reported")
+  val isReported: Boolean,
 
-	errorCode: ErrorCode
+  errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
-	companion object {
-		fun success(isReported: Boolean): ReportPhotoResponse {
-			return ReportPhotoResponse(isReported, ErrorCode.Ok)
-		}
+  companion object {
+    fun success(isReported: Boolean): ReportPhotoResponse {
+      return ReportPhotoResponse(isReported, ErrorCode.Ok)
+    }
 
-		fun fail(errorCode: ErrorCode): ReportPhotoResponse {
-			return ReportPhotoResponse(false, errorCode)
-		}
-	}
+    fun fail(errorCode: ErrorCode): ReportPhotoResponse {
+      return ReportPhotoResponse(false, errorCode)
+    }
+  }
 }

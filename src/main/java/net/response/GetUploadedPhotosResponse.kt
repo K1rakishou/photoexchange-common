@@ -7,47 +7,47 @@ import core.ErrorCode
 class GetUploadedPhotosResponse
 private constructor(
 
-	@Expose
-	@SerializedName("uploaded_photos")
-	val uploadedPhotos: List<UploadedPhotoResponseData>,
+  @Expose
+  @SerializedName("uploaded_photos")
+  val uploadedPhotos: List<UploadedPhotoResponseData>,
 
-	errorCode: ErrorCode
+  errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
-	companion object {
-		fun success(uploadedPhotos: List<UploadedPhotoResponseData>): GetUploadedPhotosResponse {
-			return GetUploadedPhotosResponse(uploadedPhotos, ErrorCode.Ok)
-		}
+  companion object {
+    fun success(uploadedPhotos: List<UploadedPhotoResponseData>): GetUploadedPhotosResponse {
+      return GetUploadedPhotosResponse(uploadedPhotos, ErrorCode.Ok)
+    }
 
-		fun fail(errorCode: ErrorCode): GetUploadedPhotosResponse {
-			return GetUploadedPhotosResponse(emptyList(), errorCode)
-		}
-	}
+    fun fail(errorCode: ErrorCode): GetUploadedPhotosResponse {
+      return GetUploadedPhotosResponse(emptyList(), errorCode)
+    }
+  }
 
-	class UploadedPhotoResponseData(
-
-		@Expose
-		@SerializedName("photo_id")
-		val photoId: Long,
+  class UploadedPhotoResponseData(
 
     @Expose
-		@SerializedName("photo_name")
-		val photoName: String,
+    @SerializedName("photo_id")
+    val photoId: Long,
 
     @Expose
-		@SerializedName("uploader_lon")
-		val uploaderLon: Double,
+    @SerializedName("photo_name")
+    val photoName: String,
 
     @Expose
-		@SerializedName("uploader_lat")
-		val uploaderLat: Double,
+    @SerializedName("uploader_lon")
+    val uploaderLon: Double,
 
     @Expose
-		@SerializedName("has_receiver_info")
-		val hasReceiverInfo: Boolean,
+    @SerializedName("uploader_lat")
+    val uploaderLat: Double,
 
     @Expose
-		@SerializedName("uploaded_on")
-		val uploadedOn: Long
-	)
+    @SerializedName("has_receiver_info")
+    val hasReceiverInfo: Boolean,
+
+    @Expose
+    @SerializedName("uploaded_on")
+    val uploadedOn: Long
+  )
 }
