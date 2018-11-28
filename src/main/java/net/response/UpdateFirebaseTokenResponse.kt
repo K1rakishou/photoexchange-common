@@ -7,7 +7,7 @@ private constructor(
   errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
   companion object {
-    fun success(userId: String): UpdateFirebaseTokenResponse {
+    fun success(): UpdateFirebaseTokenResponse {
       return UpdateFirebaseTokenResponse(ErrorCode.Ok)
     }
 

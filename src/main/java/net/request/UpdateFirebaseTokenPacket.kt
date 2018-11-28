@@ -11,4 +11,12 @@ class UpdateFirebaseTokenPacket(
   @Expose
   @SerializedName("token")
   val token: String
-)
+) {
+  fun isPacketOk(): Boolean {
+    if (userId.isNullOrEmpty() || token.isNullOrEmpty()) {
+      return false
+    }
+
+    return true
+  }
+}
