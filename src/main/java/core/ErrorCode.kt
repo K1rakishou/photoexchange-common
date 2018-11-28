@@ -10,7 +10,8 @@ enum class ErrorCode(val value: Int) {
   TimeoutException(6),
   CouldNotTakePhoto(7),
   NoPhotosInRequest(8),
-  NoPhotosToSendBack(9);
+  NoPhotosToSendBack(9),
+  UserDoesNotHaveFirebaseToken(10);
 
   fun getErrorMessage(): String {
     TODO()
