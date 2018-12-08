@@ -15,7 +15,9 @@ enum class ErrorCode(val value: Int) {
   ExceededMaxPhotoSize(9),
   ServerDiskError(10),
   ServerResizeError(11),
-  FileIsNotAnImage(12);
+  FileIsNotAnImage(12),
+  PhotoDoesNotExist(13),
+  CouldNotReplacePhotoWithPlaceholder(14);
 
   fun getErrorMessage(): String {
     return when(this) {
@@ -23,14 +25,16 @@ enum class ErrorCode(val value: Int) {
       BadRequest -> "Bad request. Check your input parameters."
       DatabaseError -> "Server database error."
       NoPhotosInRequest -> "No photos were provided in the request."
-      NoPhotosToSendBack -> "No photos to send back"
+      NoPhotosToSendBack -> "No photos to send back."
       UserDoesNotHaveFirebaseToken -> "User have not registered yet."
       YouAreBanned -> "You are banned."
       AccountNotFound -> "Account not found."
       ExceededMaxPhotoSize -> "Exceeded max photo size."
-      ServerDiskError -> "Unknown server disk error"
-      ServerResizeError -> "Could not resize photo on the server"
-      FileIsNotAnImage -> "Uploaded file is not an image"
+      ServerDiskError -> "Unknown server disk error."
+      ServerResizeError -> "Could not resize photo on the server."
+      FileIsNotAnImage -> "Uploaded file is not an image."
+      PhotoDoesNotExist -> "Photo does not exist on the server"
+      CouldNotReplacePhotoWithPlaceholder -> "Could not replace photo with placeholder"
 
       Ok -> throw IllegalStateException("This should not happen")
     }
