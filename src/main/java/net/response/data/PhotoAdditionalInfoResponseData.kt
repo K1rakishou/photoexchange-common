@@ -13,6 +13,10 @@ class PhotoAdditionalInfoResponseData(
   val isFavourited: Boolean,
 
   @Expose
+  @SerializedName("favourites_count")
+  val favouritesCount: Long,
+
+  @Expose
   @SerializedName("is_reported")
   val isReported: Boolean
 )

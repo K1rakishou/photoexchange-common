@@ -20,9 +20,5 @@ class GalleryPhotoResponseData(
 
   @Expose
   @SerializedName("uploaded_on")
-  val uploadedOn: Long,
-
-  @Expose
-  @SerializedName("favourites_count")
-  val favouritesCount: Long
+  val uploadedOn: Long
 )
