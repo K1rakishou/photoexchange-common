@@ -3,6 +3,7 @@ package net.response
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import core.ErrorCode
+import net.response.data.UploadedPhotoResponseData
 
 class GetUploadedPhotosResponse
 private constructor(
@@ -23,46 +24,4 @@ private constructor(
       return GetUploadedPhotosResponse(emptyList(), errorCode)
     }
   }
-
-  class UploadedPhotoResponseData(
-
-    @Expose
-    @SerializedName("photo_id")
-    val photoId: Long,
-
-    @Expose
-    @SerializedName("photo_name")
-    val photoName: String,
-
-    @Expose
-    @SerializedName("uploader_lon")
-    val uploaderLon: Double,
-
-    @Expose
-    @SerializedName("uploader_lat")
-    val uploaderLat: Double,
-
-    @Expose
-    @SerializedName("receiver_info")
-    val receiverInfoResponseData: ReceiverInfoResponseData?,
-
-    @Expose
-    @SerializedName("uploaded_on")
-    val uploadedOn: Long
-  )
-
-  class ReceiverInfoResponseData(
-
-    @Expose
-    @SerializedName("receiver_photo_name")
-    val receiverPhotoName: String,
-
-    @Expose
-    @SerializedName("receiver_lon")
-    val receiverLon: Double,
-
-    @Expose
-    @SerializedName("receiver_lat")
-    val receiverLat: Double
-  )
 }

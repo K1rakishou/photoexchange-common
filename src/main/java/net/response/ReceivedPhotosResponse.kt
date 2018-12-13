@@ -3,6 +3,8 @@ package net.response
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import core.ErrorCode
+import net.response.data.PhotoAdditionalInfoResponseData
+import net.response.data.ReceivedPhotoResponseData
 
 class ReceivedPhotosResponse
 private constructor(
@@ -11,43 +13,23 @@ private constructor(
   @SerializedName("received_photos")
   val receivedPhotos: List<ReceivedPhotoResponseData>,
 
+  @Expose
+  @SerializedName("photo_addiitional_info")
+  val additionalInfo: PhotoAdditionalInfoResponseData?,
+
   errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
 
   companion object {
-    fun success(receivedPhotos: List<ReceivedPhotoResponseData>): ReceivedPhotosResponse {
-      return ReceivedPhotosResponse(receivedPhotos, ErrorCode.Ok)
+    fun success(
+      receivedPhotos: List<ReceivedPhotoResponseData>,
+      additionalInfo: PhotoAdditionalInfoResponseData
+    ): ReceivedPhotosResponse {
+      return ReceivedPhotosResponse(receivedPhotos, additionalInfo, ErrorCode.Ok)
     }
 
     fun fail(errorCode: ErrorCode): ReceivedPhotosResponse {
-      return ReceivedPhotosResponse(emptyList(), errorCode)
+      return ReceivedPhotosResponse(emptyList(), null, errorCode)
     }
   }
-
-  class ReceivedPhotoResponseData(
-
-    @Expose
-    @SerializedName("photo_id")
-    val photoId: Long,
-
-    @Expose
-    @SerializedName("uploaded_photo_name")
-    val uploadedPhotoName: String,
-
-    @Expose
-    @SerializedName("received_photo_name")
-    val receivedPhotoName: String,
-
-    @Expose
-    @SerializedName("lon")
-    val lon: Double,
-
-    @Expose
-    @SerializedName("lat")
-    val lat: Double,
-
-    @Expose
-    @SerializedName("uploaded_on")
-    val uploadedOn: Long
-  )
 }
