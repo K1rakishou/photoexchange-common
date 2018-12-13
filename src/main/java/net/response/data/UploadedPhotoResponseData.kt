@@ -2,7 +2,6 @@ package net.response.data
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import net.response.GetUploadedPhotosResponse
 
 class UploadedPhotoResponseData(
 
@@ -24,7 +23,7 @@ class UploadedPhotoResponseData(
 
   @Expose
   @SerializedName("receiver_info")
-  val receiverInfoResponseData: GetUploadedPhotosResponse.ReceiverInfoResponseData?,
+  val receiverInfoResponseData: ReceiverInfoResponseData?,
 
   @Expose
   @SerializedName("uploaded_on")
