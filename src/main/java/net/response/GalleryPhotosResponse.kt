@@ -14,8 +14,8 @@ private constructor(
   val galleryPhotos: List<GalleryPhotoResponseData>,
 
   @Expose
-  @SerializedName("photo_addiitional_info")
-  val additionalInfo: PhotoAdditionalInfoResponseData?,
+  @SerializedName("photo_additional_info")
+  val additionalInfo: List<PhotoAdditionalInfoResponseData>,
 
   errorCode: ErrorCode
 ) : StatusResponse(errorCode.value) {
@@ -23,13 +23,13 @@ private constructor(
   companion object {
     fun success(
       galleryPhotos: List<GalleryPhotoResponseData>,
-      additionalInfo: PhotoAdditionalInfoResponseData
+      additionalInfo: List<PhotoAdditionalInfoResponseData>
     ): GalleryPhotosResponse {
       return GalleryPhotosResponse(galleryPhotos, additionalInfo, ErrorCode.Ok)
     }
 
     fun fail(errorCode: ErrorCode): GalleryPhotosResponse {
-      return GalleryPhotosResponse(emptyList(), null, errorCode)
+      return GalleryPhotosResponse(emptyList(), emptyList(), errorCode)
     }
   }
 }
