@@ -17,7 +17,9 @@ enum class ErrorCode(val value: Int) {
   ServerResizeError(11),
   FileIsNotAnImage(12),
   PhotoDoesNotExist(13),
-  CouldNotReplacePhotoWithPlaceholder(14);
+  CouldNotReplacePhotoWithPlaceholder(14),
+  ExceededMaxPacketSize(15),
+  RequestPartIsEmpty(16);
 
   fun getErrorMessage(): String {
     return when(this) {
@@ -35,6 +37,8 @@ enum class ErrorCode(val value: Int) {
       FileIsNotAnImage -> "Uploaded file is not an image."
       PhotoDoesNotExist -> "Photo does not exist on the server"
       CouldNotReplacePhotoWithPlaceholder -> "Could not replace photo with placeholder"
+      ExceededMaxPacketSize -> "Exceeded max packet size."
+      RequestPartIsEmpty -> "Request is empty."
 
       Ok -> throw IllegalStateException("This should not happen")
     }
