@@ -11,8 +11,4 @@ class ReportPhotoPacket(
   @Expose
   @SerializedName("photo_name")
   val photoName: String
-) {
-  fun isPacketOk(): Boolean {
-    return !(userId.isNullOrEmpty() || photoName.isNullOrEmpty())
-  }
-}
+)
