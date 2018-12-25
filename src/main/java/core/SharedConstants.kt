@@ -6,6 +6,6 @@ object SharedConstants {
 
   const val NO_GOOGLE_PLAY_SERVICES_DEFAULT_TOKEN = "NO_GOOGLE_PLAY_SERVICES_DEFAULT_TOKEN"
 
-  const val USER_ID_LEN = 20
-  const val PHOTO_NAME_LEN = 32
+  const val MAX_USER_ID_LEN = 24
+  const val MAX_PHOTO_NAME_LEN = 36
 }
