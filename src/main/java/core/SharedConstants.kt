@@ -8,4 +8,5 @@ object SharedConstants {
 
   const val MAX_USER_ID_LEN = 24
   const val MAX_PHOTO_NAME_LEN = 36
+  const val MAX_FIREBASE_TOKEN_LEN = 256
 }
