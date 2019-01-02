@@ -13,8 +13,8 @@ class UploadPhotoPacket(
   val lat: Double,
 
   @Expose
-  @SerializedName("user_id")
-  val userId: String,
+  @SerializedName("user_uuid")
+  val userUuid: String,
 
   @Expose
   @SerializedName("is_public")

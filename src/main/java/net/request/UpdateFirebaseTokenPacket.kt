@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 class UpdateFirebaseTokenPacket(
   @Expose
-  @SerializedName("user_id")
-  val userId: String,
+  @SerializedName("user_uuid")
+  val userUuid: String,
 
   @Expose
   @SerializedName("token")
